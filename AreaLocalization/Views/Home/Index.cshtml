@@ -1,0 +1,25 @@
+﻿@using System.Globalization
+@using AreaLocalization
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Microsoft.Extensions.Localization
+
+@inject IViewLocalizer ViewLocalizer
+@inject IStringLocalizer<ViewSharedResource> ViewSharedLocalizer
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<h1>Current UI culture: @CultureInfo.CurrentUICulture</h1>
+<p>Controller specific resource: @ViewBag.ControllerSpecific</p>
+<p>Shared resource from controller: @ViewBag.ControllerShared</p>
+<p>View specific resource: @ViewLocalizer["ViewSpecific"]</p>
+<p>Shared resources in view: @ViewSharedLocalizer["ViewShared"]</p>
+<a asp-area="Admin" asp-controller="Home" asp-action="Index">To admin</a>
+</body>
+</html>
